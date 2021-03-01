@@ -84,7 +84,8 @@ let vowelBonusScore;
 
 let scrabbleScore;
 
-const scoringAlgorithms = [{name: 'Simple Score', 
+const scoringAlgorithms = []; 
+/*const scoringAlgorithms = [{name: 'Simple Score', 
                             description: 'Each letter is worth 1 point', 
                             scoreFunction: simpleScore
                             },
@@ -96,7 +97,7 @@ const scoringAlgorithms = [{name: 'Simple Score',
                             description: 'The traditional scoring algorithm', 
                             scoreFunction: scrabbleScore
                             }
-                          ];
+]; */
 
 function scorerPrompt(word) {
     let wordScore = 0
