@@ -175,7 +175,7 @@ function transform(oldPointStructure) {
   return pointStructure; */
   //return newStructure;
   newPointStructure = newStructure;
-  return true;
+  return Boolean(newPointStructure);
 };
 
 let newPointStructure = {};
