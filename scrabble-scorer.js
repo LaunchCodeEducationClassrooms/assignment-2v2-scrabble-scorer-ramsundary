@@ -166,13 +166,15 @@ function transform(oldPointStructure) {
     pointStructure[k] = Number(newStructure[k]);
   }
 
-  return pointStructure;
+
+  newPointStructure = pointStructure;
 };
 
 let newPointStructure = {};
 
 function runProgram() {
-  newPointStructure = transform(oldPointStructure);
+  transform(oldPointStructure);
+  //newPointStructure = transform(oldPointStructure);
   //console.log(newPointStructure);
   let userWord = initialPrompt();
   let score = scorerPrompt(userWord);
