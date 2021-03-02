@@ -150,7 +150,7 @@ function transform(oldPointStructure) {
         newStructure[letters[i]] = Number(item);
     }
   }
-  
+  /*
   let keys = [], k, i;
     
   for (k in newStructure) {
@@ -167,7 +167,8 @@ function transform(oldPointStructure) {
   }
 
 
-  return pointStructure;
+  return pointStructure; */
+  return newStructure;
 };
 
 let newPointStructure = {};
