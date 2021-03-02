@@ -36,39 +36,6 @@ function oldScrabbleScorer(word) {
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
-/*function simpScore(word) {
-  simpleScore = 0;
-
-  for (let i= 0; i < word.length; i++) {
-    //simpleScore += `Points for '${word[i]}':` + 1 + '\n'
-    simpleScore += 1;
-  }
-  return simpleScore;
-} 
-
-function vowelScore(word) {
-  word = word.toUpperCase();
-
-  const vowelStructure = {
-    1: ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','X','Z'],
-    3: ['A','E','I','O','U','Y','W']
-  }
-
-  vowelBonusScore = 0;
-
-  for (let i= 0; i < word.length; i++) {
-	  for (const pointValue in vowelStructure) {
- 
-		 if (vowelStructure[pointValue].includes(word[i])) {
-			//vowelBonusScore += `Points for '${word[i]}': ${pointValue}\n`
-      vowelBonusScore += Number(pointValue);
-		 }
- 
-	  }    
-  }
-  return vowelBonusScore;
-
-} */
 
 function initialPrompt() {
    //console.log("Let's play some scrabble! Enter a word:");
@@ -113,10 +80,10 @@ let vowelBonusScore = function(word) {
 };
 
 let scrabbleScore = function(word){
-  word = word.toLowerCase();
+  word = word.toUpperCase();
 	let letterPoints = "";
   let score = 0;
- 
+    
 	for (let i = 0; i < word.length; i++) {
  
 	  for (const item in newPointStructure) {
@@ -172,58 +139,41 @@ function scorerPrompt(word) {
     return wordScore;
 }
 
-function transform(oldPointStructure) {};
+function transform(oldPointStructure) {
+  let newStructure  = {};
+  let pointStructure = {};
 
-let newPointStructure = {
-  a: 1,
-  b: 3,
-  c: 3,
-  d: 2,
-  e: 1,
-  f: 4,
-  g: 2,
-  h: 4,
-  i: 1,
-  j: 8,
-  k: 5,
-  l: 1,
-  m: 3,
-  n: 1,
-  o: 1,
-  p: 3,
-  q: 10,
-  r: 1,
-  s: 1,
-  t: 1,
-  u: 1,
-  v: 4,
-  w: 4,
-  x: 8,
-  y: 4,
-  z: 10
+  for (let item in oldPointStructure){
+    let letters = oldPointStructure[item];
+
+    for (let i = 0; i < letters.length; i++) {
+        newStructure[letters[i]] = Number(item);
+    }
+  }
+  
+  let keys = [], k, i;
+    
+  for (k in newStructure) {
+    if (newStructure.hasOwnProperty(k)) {
+    keys.push(k);
+    }
+  }
+
+  keys.sort();
+
+  for (i = 0; i < keys.length; i++) {
+    k = keys[i];
+    pointStructure[k] = Number(newStructure[k]);
+  }
+
+  return pointStructure;
 };
 
-/*function newScrabbleScore(word){
-  word = word.toLowerCase();
-	let letterPoints = "";
-  scrabbleScore = 0;
- 
-	for (let i = 0; i < word.length; i++) {
- 
-	  for (const item in newPointStructure) {
- 
- 		 if (item == word[i]) {
-			scrabbleScore += newPointStructure[item];
-		 }
-
-	  }
-	}
-	//return letterPoints;
-  return scrabbleScore;
-
-} */
+let newPointStructure = {};
 
 function runProgram() {
+  newPointStructure = transform(oldPointStructure);
+  //console.log(newPointStructure);
   let userWord = initialPrompt();
   let score = scorerPrompt(userWord);
 
