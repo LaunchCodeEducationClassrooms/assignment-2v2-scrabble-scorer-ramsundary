@@ -151,6 +151,26 @@ function transform(oldPointStructure) {
     }
   }
   
+  
+  let pointStructure = {};
+  let keys = [], k, i;
+    
+  for (k in newStructure) {
+    if (newStructure.hasOwnProperty(k)) {
+    keys.push(k);
+    }
+  }
+
+  keys.sort();
+
+  for (i = 0; i < keys.length; i++) {
+    k = keys[i];
+    pointStructure[k] = Number(newStructure[k]);
+  }
+
+  newStructure = pointStructure; 
+  //console.log(newStructure);
+  
   return newStructure;
 };
 
