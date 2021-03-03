@@ -141,7 +141,7 @@ function scorerPrompt(word) {
 }
 
 function transform(oldPointStructure) {
-  let newStructure  = {};
+  let newStructure  = {a: 1};
   
   for (let item in oldPointStructure){
     let letters = oldPointStructure[item];
@@ -150,8 +150,7 @@ function transform(oldPointStructure) {
         newStructure[letters[i].toLowerCase()] = Number(item);
     }
   }
-  
-  
+    
   let pointStructure = {};
   let keys = [], k, i;
     
@@ -169,7 +168,7 @@ function transform(oldPointStructure) {
   }
 
   newStructure = pointStructure; 
-  //console.log(newStructure);
+  console.log(newStructure);
   
   return newStructure;
 };
