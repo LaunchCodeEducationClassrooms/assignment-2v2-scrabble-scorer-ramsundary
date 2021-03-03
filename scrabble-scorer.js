@@ -84,7 +84,8 @@ let scrabbleScore = function(word){
 	let letterPoints = "";
   let score = 0;
   
-  newPointStructure = transform(oldPointStructure);
+  //newPointStructure = transform(oldPointStructure);
+  transform(oldPointStructure);
 
   for (let i = 0; i < word.length; i++) {
   
@@ -141,21 +142,21 @@ function scorerPrompt(word) {
 }
 
 function transform(oldPointStructure) {
-  let newStructure  = {a: 1};
+  //let newStructure  = {};
   
   for (let item in oldPointStructure){
     let letters = oldPointStructure[item];
     
     for (let i = 0; i < letters.length; i++) {
-        newStructure[letters[i].toLowerCase()] = Number(item);
+        newPointStructure[letters[i].toLowerCase()] = Number(item);
     }
   }
     
   let pointStructure = {};
   let keys = [], k, i;
     
-  for (k in newStructure) {
-    if (newStructure.hasOwnProperty(k)) {
+  for (k in newPointStructure) {
+    if (newPointStructure.hasOwnProperty(k)) {
     keys.push(k);
     }
   }
@@ -164,13 +165,13 @@ function transform(oldPointStructure) {
 
   for (i = 0; i < keys.length; i++) {
     k = keys[i];
-    pointStructure[k] = Number(newStructure[k]);
+    pointStructure[k] = Number(newPointStructure[k]);
   }
 
-  newStructure = pointStructure; 
-  console.log(newStructure);
+  newPointStructure = pointStructure; 
+  console.log(newPointStructure);
   
-  return newStructure;
+  return newPointStructure;
 };
 
 let newPointStructure = {};
