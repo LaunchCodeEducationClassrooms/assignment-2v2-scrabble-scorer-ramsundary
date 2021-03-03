@@ -83,24 +83,20 @@ let scrabbleScore = function(word){
   word = word.toUpperCase();
 	let letterPoints = "";
   let score = 0;
-
-  //newPointStructure = transform(oldPointStructure);
-
-  if (transform(oldPointStructure))  {
-
-    for (let i = 0; i < word.length; i++) {
   
-      for (const item in newPointStructure) {
+  newPointStructure = transform(oldPointStructure);
+
+  for (let i = 0; i < word.length; i++) {
+  
+    for (const item in newPointStructure) {
   
       if (item == word[i]) {
         score += newPointStructure[item];
       }
 
-      }
     }
-    return score;
   }
-
+    return score;
 };
 
 //const scoringAlgorithms = []; 
@@ -174,8 +170,9 @@ function transform(oldPointStructure) {
 
   return pointStructure; */
   //return newStructure;
-  newPointStructure = newStructure;
-  return Boolean(newPointStructure);
+  //newPointStructure = newStructure;
+  //return newPointStructure;
+  return newStructure;
 };
 
 let newPointStructure = {};
