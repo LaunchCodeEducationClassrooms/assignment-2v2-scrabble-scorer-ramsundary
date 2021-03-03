@@ -142,44 +142,20 @@ function scorerPrompt(word) {
 
 function transform(oldPointStructure) {
   let newStructure  = {};
-  let pointStructure = {};
-
+  
   for (let item in oldPointStructure){
     let letters = oldPointStructure[item];
 
     for (let i = 0; i < letters.length; i++) {
-        newStructure[letters[i]] = Number(item);
+        newStructure[String(letters[i])] = Number(item);
     }
   }
-  /*
-  let keys = [], k, i;
-    
-  for (k in newStructure) {
-    if (newStructure.hasOwnProperty(k)) {
-    keys.push(k);
-    }
-  }
-
-  keys.sort();
-
-  for (i = 0; i < keys.length; i++) {
-    k = keys[i];
-    pointStructure[k] = Number(newStructure[k]);
-  }
-
-
-  return pointStructure; */
-  //return newStructure;
-  //newPointStructure = newStructure;
-  //return newPointStructure;
   return newStructure;
 };
 
 let newPointStructure = {};
 
 function runProgram() {
-  //newPointStructure = transform(oldPointStructure);
-  //console.log(newPointStructure);
   let userWord = initialPrompt();
   let score = scorerPrompt(userWord);
 
