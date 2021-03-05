@@ -142,8 +142,7 @@ function scorerPrompt(word) {
 }
 
 function transform(oldPointStructure) {
-  //let newStructure  = {};
-  
+    
   for (let item in oldPointStructure){
     let letters = oldPointStructure[item];
     
@@ -151,7 +150,7 @@ function transform(oldPointStructure) {
         newPointStructure[letters[i].toLowerCase()] = Number(item);
     }
   }
-    
+  /*  Commented sorting
   let pointStructure = {};
   let keys = [], k, i;
     
@@ -169,7 +168,8 @@ function transform(oldPointStructure) {
   }
 
   newPointStructure = pointStructure; 
-  console.log(newPointStructure);
+  */
+  //console.log(newPointStructure);
   
   return newPointStructure;
 };
